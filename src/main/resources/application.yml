@@ -1,0 +1,31 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: Oauth server
+  main:
+    banner-mode: 'off'
+  datasource:
+    url: jdbc:mysql://localhost/NewRegister
+    platform: mysql
+    username: root
+    password: passwoord
+    driverClassName: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+        
+hibernate:
+  dialect:
+    storage-engine:innodb  
+
+
+
+security:
+  oauth2:
+    client-id: account
+    client-secret: secret
+    authorized-grant-types: refresh_token, password, client_credentials, authorization_code
+    resource:
+      filter-order: 3
