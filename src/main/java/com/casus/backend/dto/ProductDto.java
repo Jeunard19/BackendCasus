@@ -10,6 +10,8 @@ public class ProductDto {
 	
 	private Double pricePaid; 
 	
+	private Long userId; 
+	
 	//public List<Double> pricesOnline; 
 	
 	private Integer winstMargin;
@@ -60,6 +62,14 @@ public class ProductDto {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
 	
 	

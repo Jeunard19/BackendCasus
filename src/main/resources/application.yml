@@ -7,10 +7,10 @@ spring:
   main:
     banner-mode: 'off'
   datasource:
-    url: jdbc:mysql://localhost/NewRegister
+    url: jdbc:mysql://localhost:3306/casus
     platform: mysql
     username: root
-    password: passwoord
+    password: 
     driverClassName: com.mysql.jdbc.Driver
   jpa:
     hibernate:

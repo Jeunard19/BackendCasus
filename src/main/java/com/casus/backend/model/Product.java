@@ -1,13 +1,14 @@
 package com.casus.backend.model;
 
-import java.util.List;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
+
 
 @Entity
 public class Product {
@@ -22,6 +23,11 @@ public class Product {
 	private String productCategory; 
 	
 	private Double pricePaid; 
+	
+	//private Long userId; 
+	
+	@ManyToOne
+	private User user; 
 	
 	//@OneToMany
 	//public List<Double> pricesOnline; 
@@ -74,6 +80,22 @@ public class Product {
 
 	public void setProductName(String productName) {
 		this.productName = productName;
+	}
+
+	//public Long getUserId() {
+	//	return userId;
+	//}
+
+//	public void setUserId(Long userId) {
+	//	this.userId = userId;
+	//}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	} 
 	
 	

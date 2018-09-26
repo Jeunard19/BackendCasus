@@ -46,6 +46,27 @@ public class ProductService implements IProductService {
 			return this.iProductDao.save(product);
 		}
 
+	@Override
+	public Product update(Product product) {
+		return this.iProductDao.save(product);
+		
+	}
+
+	@Override
+	public void delete(Product product) {
+		this.iProductDao.delete(product);
+		
+	}
+
+	@Override
+	public Optional<Product> findbyuserId(Long userId) {
+		if (userId < 0)
+			return Optional.empty();
+		
+		return this.iProductDao.findByUserId(userId);
+	}
+	
+
 	
 	
 }

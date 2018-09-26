@@ -7,6 +7,8 @@ import com.casus.backend.model.Product;
 
 
 
+
+
 public interface IProductService {
 	
 	public List<Product> findAll(); 
@@ -16,6 +18,12 @@ public interface IProductService {
 	public Optional<Product> findOne(Long id);
 
 	public Product create(Product product);
+	
+	Product update(Product product);
+	
+	void delete(Product product);
+
+	public Optional<Product> findbyuserId(Long userId);
 	
 
 }
