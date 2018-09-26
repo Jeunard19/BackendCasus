@@ -1,9 +1,13 @@
 package com.casus.backend.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -21,6 +25,19 @@ public class User {
 	private String password;
 
 	private String role;
+	
+	@OneToMany
+    @JoinColumn(name = "fk_User")
+	private List<Product> product;
+
+
+	public List<Product> getProduct() {
+		return product;
+	}
+
+	public void setProduct(List<Product> product) {
+		this.product = product;
+	}
 
 	public Long getId() {
 		return id;

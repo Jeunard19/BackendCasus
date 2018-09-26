@@ -4,9 +4,11 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -19,14 +21,15 @@ public class Product {
 	@Column
 	private String productName; 
 	
+
+
 	private String productCategory; 
 	
 	private Double pricePaid; 
+
 	
-	//@OneToMany
-	//public List<Double> pricesOnline; 
 	
-	private Integer winstMargin;
+	private Double winstMargin;
 
 	public String getProductCategory() {
 		return productCategory;
@@ -44,11 +47,11 @@ public class Product {
 		this.pricePaid = pricePaid;
 	}
 
-	public Integer getWinstMargin() {
+	public Double getWinstMargin() {
 		return winstMargin;
 	}
 
-	public void setWinstMargin(Integer winstMargin) {
+	public void setWinstMargin(double winstMargin) {
 		this.winstMargin = winstMargin;
 	}
 

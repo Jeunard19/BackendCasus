@@ -15,7 +15,7 @@ public interface IProductService {
 	
 	public Optional<Product> findOne(Long id);
 
-	public Product create(Product product);
+	public Product create(Product product, String term);
 	
 
 }

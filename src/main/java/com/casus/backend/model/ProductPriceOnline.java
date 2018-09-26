@@ -13,8 +13,7 @@ public class ProductPriceOnline {
 	private Long id;
 	
 	private Long productId; 
-	private Double priceOnline; 
-	private String websiteAddress;
+	
 	
 	public Long getProductId() {
 		return productId;
@@ -22,6 +21,10 @@ public class ProductPriceOnline {
 	public void setProductId(Long productId) {
 		this.productId = productId;
 	}
+	private Double priceOnline; 
+	private String websiteAddress;
+	
+
 	public Double getPriceOnline() {
 		return priceOnline;
 	}
