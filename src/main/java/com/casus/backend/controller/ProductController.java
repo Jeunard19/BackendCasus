@@ -42,6 +42,7 @@ public class ProductController {
 	
 	@PostMapping("/api/product")
 	public Product create(@RequestBody Product product) {
+		
 		return this.iProductService.create(product);
 	}
 		

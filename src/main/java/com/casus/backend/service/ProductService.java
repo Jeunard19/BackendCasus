@@ -42,17 +42,28 @@ public class ProductService implements IProductService {
 	}
 
 	@Override
-	public Product create(Product product,String term) {
+	public Product create(Product product) {
 		
 
 			Assert.notNull(product,"Product may not be null");
 			try {
-				GoogleResults re = new GoogleResults(term);
-				product.setProductCategory(re.getCator());
+				GoogleResults re = new GoogleResults(product.getProductName());
+				if(re.getCator().contains("|")) {
+					product.setProductCategory(re.getCator().substring(0,re.getCator()
+							.indexOf("|")));
+					
+				} else {
+					product.setProductCategory(re.getCator());
+				}
+				
+				System.out.println(product.getProductCategory());
 				product.setPricePaid(re.getLowestprice());
 				product.setWinstMargin(re.getHighestprice()-re.getLowestprice());
-			} catch(Exception e) {
-				
+				return this.iProductDao.save(product);
+			} catch(UnsupportedEncodingException e) {
+				System.out.println(e.getMessage());
+			}  catch(IOException ex) {
+				System.out.println(ex.getMessage());
 			}
 			
 			return this.iProductDao.save(product);

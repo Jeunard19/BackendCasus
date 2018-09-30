@@ -22,7 +22,7 @@ public class Winst {
 	String newurl;
 	public void search(String  searchnew) throws IOException {
 		String google = "http://www.google.com/search?q=";
-		String search = "marktplaats gebruikt "+searchnew;
+		String search = "marktplaats "+searchnew;
 		String charset = "UTF-8";
 		String userAgent = "ExampleBot 1.0 (+http://example.com/bot)"; // Change this to your company's name and bot homepage!
 		
@@ -42,9 +42,7 @@ public class Winst {
 		     //   continue; // Ads/news/etc.
 		   // }
 
-		    System.out.println("Title: " + title);
-		    System.out.println("URL: " + url);
-		}
+		    
 	}
 
-}
+	}}

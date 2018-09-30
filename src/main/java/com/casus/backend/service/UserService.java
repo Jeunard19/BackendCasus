@@ -65,5 +65,11 @@ public class UserService implements UserDetailsService, IUserService {
 		return "{bcrypt}"+hashedPassword;
 
 	}
+
+	//@Override
+	//public int finduserid(String username) {
+		// TODO Auto-generated method stub
+	//	return iUserDAO.findUserId(username);
+//	}
 	
 }

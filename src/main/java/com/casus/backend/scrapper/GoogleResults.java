@@ -28,47 +28,50 @@ public class GoogleResults {
 	public void gethtmlinfo(String term) throws UnsupportedEncodingException, IOException {
 		int currentpage=1;
 		Winst winst = new Winst();
-		winst.search(term);
+		winst.search("\""+term+"\"");
 		String url=winst.getNewurl();
 		System.out.println(url);
 		int count=1;
 		boolean keeploping =true;
-	while(keeploping) {
+	
 		ArrayList<String> firstlist = new ArrayList();
 		Document doc =  Jsoup.connect(url+"&currentPage="+currentpage).get();
-		currentpage+=1;
-		if(count ==1) {
-			firstlist.addAll(doc.body().getElementsByClass("seller-name ellipsis").eachText());
-			System.out.println(firstlist);
-			count+=1;
-			sellers.addAll(doc.body().getElementsByClass("seller-name ellipsis").eachText());
-			prices.addAll(doc.body().getElementsByClass("price-and-thumb-container").eachText());
-			cator= doc.body().getElementsByClass("category-name").text();
-
-		} else {
-			if(count==4) {
-				break;
-			}
-			count+=1;
-			sellers.addAll(doc.body().getElementsByClass("seller-name ellipsis").eachText());
-			prices.addAll(doc.body().getElementsByClass("price-and-thumb-container").eachText());
+		
+		
+			this.cator= doc.body().getElementsByClass("category-name").text();
+			System.out.println(this.cator);
+			sellers.addAll(doc.body().getElementsByClass("seller-name ellipsis").eachAttr("title"));
+			prices.addAll(doc.body().getElementsByClass("price-new").eachText());
 			
 		
-		}
+	
 			
-		}
+		
 	ArrayList<Double> pricese= new ArrayList();
 	System.out.println(sellers);
 	System.out.println(prices);
-ArrayList<String> sellers2=new ArrayList<String>(sellers.subList(0, prices.size()));
-	System.out.println(cator);
-	for(String price:prices) {
+ArrayList<String> prices2=new ArrayList<String>(prices.subList(0, sellers.size()));
+sellers=new ArrayList<String>(sellers.subList(0, prices2.size()));
+	
+System.out.println(cator);
+System.out.println(sellers.size());
+System.out.println(prices2.size());
+
+	for(String price:prices2) {
 		if(price.matches(".*\\d+.*")) {
-			pricese.add(Double.parseDouble(((price.substring(2).replaceAll(",",".")))));
+			pricese.add(Double.parseDouble(((price.substring(2).replaceAll("\\.","").replaceAll(",",".")))));
 		}
 	}
 	this.lowestprice=Collections.min(pricese);
-	this.the_seller=sellers2.get(prices.indexOf(("€ "+Collections.min(pricese)).toString().replaceAll("\\.",",")));
+	String target = ("€ "+Collections.min(pricese)).toString().replaceAll("\\.",",");
+	if(target.endsWith(",0")) {
+		target+="0";
+		
+	}
+	System.out.println(target);
+	
+	this.the_seller=sellers.get(prices2.indexOf(target));
+	System.out.println(this.the_seller);
 	this.highestprice=Collections.max(pricese);
 	
 	   }
@@ -77,9 +80,6 @@ ArrayList<String> sellers2=new ArrayList<String>(sellers.subList(0, prices.size(
 		return highestprice;
 	}
 
-	public void setHighestprice(double highestprice) {
-		this.highestprice = highestprice;
-	}
 
 	public double getLowestprice() {
 		return lowestprice;
