@@ -18,12 +18,12 @@ public class ProductPriceOnlineController {
 	@Autowired
 	private IProductPriceOnlineService iProductPriceOnlineService; 
 	
-	@GetMapping("/api/productpriceonline/product/{id}")
-	public List<ProductPriceOnline> findByProductId(@PathVariable("id") Long productId) {
-		return this.iProductPriceOnlineService.findByProductId(productId);
-	}
+//	@GetMapping("/api/productpriceonline/product/{id}")
+//	public List<ProductPriceOnline> findByProductId(@PathVariable("id") Long productId) {
+//		return this.iProductPriceOnlineService.findByProductId(productId);
+//	}
 	
-	@PostMapping("/api/productpriceonline")
+@PostMapping("/api/productpriceonline")
 	public ProductPriceOnline create(@RequestBody ProductPriceOnline productPriceOnline) {
 		return this.iProductPriceOnlineService.create(productPriceOnline);
 	}

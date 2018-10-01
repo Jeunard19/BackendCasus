@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class ProductPriceOnline {
@@ -12,14 +13,17 @@ public class ProductPriceOnline {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private Long productId; 
+	@OneToOne
+	private Product product; 
 	
 	
-	public Long getProductId() {
-		return productId;
+
+
+	public Product getProduct() {
+		return product;
 	}
-	public void setProductId(Long productId) {
-		this.productId = productId;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 	private Double priceOnline; 
 	private String websiteAddress;

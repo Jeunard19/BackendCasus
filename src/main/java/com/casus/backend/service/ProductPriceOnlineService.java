@@ -1,6 +1,8 @@
 package com.casus.backend.service;
 
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.util.Assert;
 
 import com.casus.backend.dao.IProductPriceOnlineDao;
 import com.casus.backend.model.ProductPriceOnline;
+import com.casus.backend.scrapper.GoogleResults;
 
 @Service
 public class ProductPriceOnlineService implements IProductPriceOnlineService {
@@ -21,7 +24,6 @@ public class ProductPriceOnlineService implements IProductPriceOnlineService {
 	@Override
 	public ProductPriceOnline create(ProductPriceOnline productPriceOnline) {
 		Assert.notNull(productPriceOnline, "ProductPriceOnline may not be null");
-
 		return this.iProductPriceOnlineDao.save(productPriceOnline);
 	}
 
