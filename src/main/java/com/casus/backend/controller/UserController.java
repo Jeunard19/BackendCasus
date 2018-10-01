@@ -1,6 +1,7 @@
 package com.casus.backend.controller;
 
 import java.security.Principal;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -33,7 +34,7 @@ public class UserController {
 	}
 	
 	@PostMapping("/update")
-	public User update(@RequestBody User model) {
+	public User update(@RequestBody Optional<User>  model) {
 		return this.iUserService.update(model);
 		
 	}

@@ -14,7 +14,7 @@ spring:
     driverClassName: com.mysql.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
         
 hibernate:
   dialect:

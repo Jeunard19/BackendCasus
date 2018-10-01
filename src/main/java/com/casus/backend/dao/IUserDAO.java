@@ -16,9 +16,6 @@ public interface IUserDAO extends CrudRepository<User, Long> {
 	Optional<User> findByUsername(String username);
 
 	List<User> findAll();
-	
-	//@Query("SELECT p.id FROM user p WHERE p.username:username")
-	//int findUserId(@Param("username") String username);
-	
+
 
 }

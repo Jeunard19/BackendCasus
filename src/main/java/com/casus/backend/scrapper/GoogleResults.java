@@ -72,7 +72,10 @@ System.out.println(prices2.size());
 	
 	this.the_seller=sellers.get(prices2.indexOf(target));
 	System.out.println(this.the_seller);
+	
 	this.highestprice=Collections.max(pricese);
+	System.out.println(this.highestprice);
+	
 	
 	   }
 

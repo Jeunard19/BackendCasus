@@ -9,7 +9,7 @@ public interface IUserService {
 	
 	public User register(User user);
 	
-	public User update(User user);
+	public  User update(Optional<User> user);
 	
 	public void delete(User user);
 	
