@@ -26,6 +26,8 @@ public class Product {
 	private String productCategory; 
 	
 	private Double pricePaid; 
+	
+	
 
 	
 	

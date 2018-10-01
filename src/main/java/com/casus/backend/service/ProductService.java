@@ -45,7 +45,7 @@ public class ProductService implements IProductService {
 	public Product create(Product product) {
 		
 
-			Assert.notNull(product,"Product may not be null");
+		/*	Assert.notNull(product,"Product may not be null");
 			try {
 				GoogleResults re = new GoogleResults(product.getProductName());
 				if(re.getCator().contains("|")) {
@@ -64,7 +64,7 @@ public class ProductService implements IProductService {
 				System.out.println(e.getMessage());
 			}  catch(IOException ex) {
 				System.out.println(ex.getMessage());
-			}
+			} */
 			
 			return this.iProductDao.save(product);
 		}
