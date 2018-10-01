@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Product {
@@ -26,10 +27,32 @@ public class Product {
 	private String productCategory; 
 	
 	private Double pricePaid; 
+	
+	private Double pricesOnline; 
+	
+	public Double getPricesOnline() {
+		return pricesOnline;
+	}
 
-	
-	
+	public void setPricesOnline(Double pricesOnline) {
+		this.pricesOnline = pricesOnline;
+	}
+
+	public void setWinstMargin(Double winstMargin) {
+		this.winstMargin = winstMargin;
+	}
+
 	private Double winstMargin;
+	
+	private Double Margin;
+
+	public Double getMargin() {
+		return Margin;
+	}
+
+	public void setMargin(Double margin) {
+		Margin = margin;
+	}
 
 	public String getProductCategory() {
 		return productCategory;
@@ -55,9 +78,7 @@ public class Product {
 		this.winstMargin = winstMargin;
 	}
 
-	//public List<Double> getPricesOnline() {
-	//	return pricesOnline;
-	//}
+	
 
 	//public void setPricesOnline(List<Double> pricesOnline) {
 	//	this.pricesOnline = pricesOnline;

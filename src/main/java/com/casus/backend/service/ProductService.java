@@ -57,8 +57,8 @@ public class ProductService implements IProductService {
 				}
 				
 				System.out.println(product.getProductCategory());
-				product.setPricePaid(re.getLowestprice());
-				product.setWinstMargin(re.getHighestprice()-re.getLowestprice());
+				product.setPricesOnline(re.getLowestprice());
+				product.setMargin(product.getPricesOnline()/product.getPricePaid());
 				return this.iProductDao.save(product);
 			} catch(UnsupportedEncodingException e) {
 				System.out.println(e.getMessage());
