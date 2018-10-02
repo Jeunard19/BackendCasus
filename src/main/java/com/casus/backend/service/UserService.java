@@ -39,9 +39,15 @@ public class UserService implements UserDetailsService, IUserService {
 	}
 
 	@Override
-	public User update(User user) {
-		user.setPassword(this.hashpaswword(user.getPassword()));
-		return this.iUserDAO.save(user);
+	public User update(Optional<User> user) {
+		//user.setPassword(this.hashpaswword(user.getPassword()));
+		Optional<User> user2=this.findById(user.get().getId());
+		user.get().setEmail(user2.get().getEmail());
+		user.get().setName(user2.get().getName());
+		user.get().setPassword(user2.get().getPassword());
+		user.get().setRole(user2.get().getRole());
+		user.get().setUsername(user2.get().getUsername());
+		return this.iUserDAO.save(user.get());
 	}
 
 	@Override
@@ -65,5 +71,11 @@ public class UserService implements UserDetailsService, IUserService {
 		return "{bcrypt}"+hashedPassword;
 
 	}
+
+	//@Override
+	//public int finduserid(String username) {
+		// TODO Auto-generated method stub
+	//	return iUserDAO.findUserId(username);
+//	}
 	
 }

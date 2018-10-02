@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Review {
@@ -13,7 +15,16 @@ public class Review {
 	private Long id;
 	
 	private String quality; 
-	private Long productId;
+	
+	@OneToOne
+	private Product product;
+	
+	public Product getProduct() {
+		return product;
+	}
+	public void setProduct(Product product) {
+		this.product = product;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -26,12 +37,7 @@ public class Review {
 	public void setQuality(String quality) {
 		this.quality = quality;
 	}
-	public Long getProductId() {
-		return productId;
-	}
-	public void setProductId(Long productId) {
-		this.productId = productId;
-	}
+
 	
 	
 	

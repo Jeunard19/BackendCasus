@@ -7,14 +7,14 @@ spring:
   main:
     banner-mode: 'off'
   datasource:
-    url: jdbc:mysql://localhost/NewRegister
+    url: jdbc:mysql://localhost:3306/NewRegister?jdbcCompliantTruncation=false&zeroDateTimeBehavior=convertToNull&characterEncoding=UTF-8
     platform: mysql
     username: root
     password: passwoord
     driverClassName: com.mysql.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
         
 hibernate:
   dialect:
@@ -29,3 +29,21 @@ security:
     authorized-grant-types: refresh_token, password, client_credentials, authorization_code
     resource:
       filter-order: 3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
