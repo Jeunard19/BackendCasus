@@ -7,9 +7,10 @@ spring:
   main:
     banner-mode: 'off'
   datasource:
-    url: jdbc:mysql://localhost:3307/casus3
+    url: jdbc:mysql://localhost:3306/NewRegister?jdbcCompliantTruncation=false&zeroDateTimeBehavior=convertToNull&characterEncoding=UTF-8
+    platform: mysql
     username: root
-    password: 
+    password: passwoord
     driverClassName: com.mysql.jdbc.Driver
   jpa:
     hibernate:

@@ -45,29 +45,32 @@ public class ProductService implements IProductService {
 	public Product create(Product product) {
 		
 
-		/*	Assert.notNull(product,"Product may not be null");
-			try {
-				GoogleResults re = new GoogleResults(product.getProductName());
-				if(re.getCator().contains("|")) {
-					product.setProductCategory(re.getCator().substring(0,re.getCator()
-							.indexOf("|")));
-					
-				} else {
-					product.setProductCategory(re.getCator());
-				}
+
+		Assert.notNull(product,"Product may not be null");
+		try {
+			GoogleResults re = new GoogleResults(product.getProductName());
+			if(re.getCator().contains("|")) {
+				product.setProductCategory(re.getCator().substring(0,re.getCator()
+						.indexOf("|")));
 				
-				System.out.println(product.getProductCategory());
-				product.setPricesOnline(re.getLowestprice());
-				product.setMargin(product.getPricesOnline()/product.getPricePaid());
-				return this.iProductDao.save(product);
-			} catch(UnsupportedEncodingException e) {
-				System.out.println(e.getMessage());
-			}  catch(IOException ex) {
-				System.out.println(ex.getMessage());
-			} */
+			} else {
+				product.setProductCategory(re.getCator());
+			}
 			
+			System.out.println(product.getProductCategory());
+			product.setPricesOnline(re.getLowestprice());
+			product.setMargin(product.getPricesOnline()/product.getPricePaid());
 			return this.iProductDao.save(product);
+		} catch(UnsupportedEncodingException e) {
+			System.out.println(e.getMessage());
+		}  catch(IOException ex) {
+			System.out.println(ex.getMessage());
 		}
+		
+		return this.iProductDao.save(product);
+	}
+
+		
 	
 	public int getlowestprice(ArrayList<String> listt) {
 		
